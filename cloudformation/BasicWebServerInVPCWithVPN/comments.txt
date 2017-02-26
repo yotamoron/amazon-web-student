@@ -1,0 +1,1 @@
+Following the tutorial in: https://blog.kloud.com.au/2014/04/10/quickly-connect-to-your-aws-vpc-via-vpn/
