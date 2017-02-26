@@ -1,0 +1,1 @@
+This cf template is the result of following: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer-walkthrough-createbasicwebserver.html
