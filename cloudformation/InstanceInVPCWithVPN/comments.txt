@@ -2,3 +2,5 @@ Following the tutorial in: https://blog.kloud.com.au/2014/04/10/quickly-connect-
 
 In order to ssh into the machine, use the public IP of the vpn gateway, and use the .pem file of the key specified in the stack instanciation:
 $ ssh -i <path to .pem file> openvpnas@<vpn gateway public ip address>
+
+The client.ovpn file is obtained from the Client Web UI (NOT the admin web ui)
