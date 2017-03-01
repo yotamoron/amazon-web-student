@@ -272,9 +272,11 @@
 						"Fn::Join": [
 							"", [
 								"#!/bin/bash -xe\n",
-								"mkfs -t ext4 /dev/sdk",
-								"\n",
 								"mkdir -p /data",
+								"\n",
+								"chmod 0777 /data",
+								"\n",
+								"mkfs.ext4 /dev/xvdk",
 								"\n",
 								"echo '/dev/sdk /data ext4 defaults 1 1' >> /etc/fstab"
 							]
