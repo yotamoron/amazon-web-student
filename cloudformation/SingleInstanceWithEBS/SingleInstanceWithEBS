@@ -271,14 +271,32 @@
 					"Fn::Base64": {
 						"Fn::Join": [
 							"", [
-								"#!/bin/bash -xe\n",
+								"#!/bin/bash -xe",
+								"\n",
+								"while [ ! -e /dev/sdk ]; do",
+								"\n",
+								"sleep 5",
+								"\n",
+								"done",
+								"\n",
+								"# Format /dev/xvdk if it does not contain a partition yet",
+								"\n",
+								"if [ \"$(file -b -s /dev/xvdk)\" == \"data\" ]; then",
+								"\n",
+								"mkfs -t ext4 /dev/xvdk",
+								"\n",
+								"fi",
+								"\n",
 								"mkdir -p /data",
 								"\n",
 								"chmod 0777 /data",
 								"\n",
-								"mkfs.ext4 /dev/xvdk",
+								"mount /dev/xvdk /data",
 								"\n",
-								"echo '/dev/sdk /data ext4 defaults 1 1' >> /etc/fstab"
+
+								"# Persist the volume in /etc/fstab so it gets mounted again",
+								"\n",
+								"echo '/dev/xvdk /data ext4 defaults,nofail 0 2' >> /etc/fstab"
 							]
 						]
 					}
